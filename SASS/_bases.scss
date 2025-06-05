@@ -1,0 +1,18 @@
+body {
+  background-color: $background-color;
+  color: black;
+}
+
+footer {
+  background-color: $footer-background-color;
+  color: white;
+}
+button {
+  background: $button-color;
+  box-shadow: $button-shadow;
+
+  &:hover {
+    background: $button-hover-color;
+    box-shadow: $button-hover-shadow;
+  }
+}
