@@ -1,2 +1,55 @@
 @use "variables";
 @use "bases";
+
+body {
+  max-width: $mobile-width;
+
+  header {
+    .location {
+      font-family: $text-font;
+      font-size: 16px;
+      background: rgba(234, 234, 234, 1);
+      box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    }
+  }
+
+  main {
+    .description {
+      font-family: $text-font;
+      font-size: $secondary-font-size;
+      color: $secondary-color;
+    }
+
+    .fonctionnement {
+      .custom-ol {
+        list-style: none;
+        counter-reset: compteur;
+        padding-left: 0;
+
+        .custom-ol li {
+          counter-increment: compteur;
+          position: relative;
+          margin: 10px 0;
+          padding-left: 40px;
+        }
+
+        .custom-ol li::before {
+          content: counter(compteur);
+          position: absolute;
+          left: 0;
+          top: 50%;
+          transform: translateY(-50%);
+          width: 24px;
+          height: 24px;
+          line-height: 24px;
+          background-color: rgba(147, 86, 220, 1);
+          color: white;
+          font-weight: bold;
+          border-radius: 50%;
+          text-align: center;
+          font-family: sans-serif;
+        }
+      }
+    }
+  }
+}
