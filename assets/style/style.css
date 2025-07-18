@@ -1,0 +1,197 @@
+body {
+  background-color: #f6f6f6;
+  color: black;
+}
+body main h1 {
+  font-family: Roboto;
+  font-size: 1.5rem;
+}
+body footer {
+  background-color: #353535;
+  padding: 22px 25px;
+  gap: 16px;
+}
+body footer .footer-links ul {
+  list-style: none;
+  padding-inline-start: 0;
+}
+body footer .footer-links ul li {
+  margin-bottom: 7px;
+}
+body footer .footer-links ul li a {
+  color: white;
+  text-decoration: none;
+}
+
+.restaurant h1 {
+  padding-left: 20px;
+}
+.restaurant .restaurant-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.restaurant .restaurant-list .restaurant-card {
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  height: 251px;
+  overflow: hidden;
+  margin-bottom: 18px;
+}
+.restaurant .restaurant-list .restaurant-card img {
+  height: 70%;
+  width: 100%;
+  object-fit: cover;
+  display: block;
+}
+.restaurant .restaurant-list .restaurant-card .card-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px 0 10px;
+  height: 30%;
+}
+.restaurant .restaurant-list .restaurant-card .card-content .card-text h2 {
+  margin: 0;
+  font-size: 18px;
+}
+.restaurant .restaurant-list .restaurant-card .card-content .card-text p {
+  margin: 0;
+  font-size: 17px;
+}
+.restaurant .restaurant-list .restaurant-card .card-content .card-button {
+  height: 25px;
+}
+.restaurant .restaurant-list .restaurant-card .card-content .card-button .view-menu-button {
+  height: 25px;
+  border: none;
+  background-color: white;
+  padding: 0;
+}
+.restaurant .restaurant-list .restaurant-card .card-content .card-button .heart-icon {
+  height: 25px;
+  stroke: black;
+  fill: none;
+}
+
+body {
+  margin: 0 auto;
+  font-family: Roboto;
+}
+body header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: Roboto;
+  font-size: 1rem;
+  background: rgb(234, 234, 234);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  width: 100%;
+}
+body header .header-logo {
+  background-color: white;
+  width: 100%;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.15);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 4.25em;
+}
+body header .header-logo img {
+  height: 36px;
+}
+body header .location {
+  height: 3.125em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+body header .location i {
+  padding-right: 15px;
+}
+body main .description {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  text-align: center;
+}
+body main .description h1 {
+  font-family: Roboto;
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+body main .description p {
+  font-size: 1rem;
+  margin-bottom: 20px;
+}
+body main .description button {
+  background: linear-gradient(193.33deg, #9356dc -11.44%, #ff79da 123.93%);
+  box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.25);
+  width: 218px;
+  height: 50px;
+  border-radius: 25px;
+  border: 1px solid transparent;
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+}
+body main .description button:hover {
+  background: linear-gradient(200.64deg, #9356dc -5.2%, #ff79da 110.74%), linear-gradient(0deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.15));
+  box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.35);
+}
+body main .fonctionnement {
+  background-color: white;
+  padding: 50px 20px;
+}
+body main .fonctionnement h1 {
+  margin: 0;
+}
+body main .fonctionnement .custom-ol {
+  margin: 0;
+  list-style: none;
+  counter-reset: compteur;
+  padding-left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+body main .fonctionnement .custom-ol li {
+  background-color: #f6f6f6;
+  box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.15);
+  counter-increment: compteur;
+  position: relative;
+  margin: 10px 0;
+  width: 322.49px;
+  height: 72.38px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 12px;
+}
+body main .fonctionnement .custom-ol li i {
+  position: absolute;
+  left: 40px;
+}
+body main .fonctionnement .custom-ol li::before {
+  content: counter(compteur);
+  position: absolute;
+  left: -12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 24px;
+  height: 24px;
+  line-height: 24px;
+  background-color: rgb(147, 86, 220);
+  color: white;
+  font-weight: bold;
+  border-radius: 50%;
+  text-align: center;
+  font-family: sans-serif;
+}
+
+/*# sourceMappingURL=style.css.map */

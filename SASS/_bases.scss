@@ -1,5 +1,7 @@
+@use "variables";
+
 body {
-  background-color: $background-color;
+  background-color: variables.$primary-background-color;
   color: black;
 
   header {
@@ -11,30 +13,89 @@ body {
 
   main {
     h1 {
-      font-family: $title-font;
-      font-size: $primary-font-size;
-    }
-    button {
-      background: $button-color;
-      box-shadow: $button-shadow;
-
-      &:hover {
-        background: $button-hover-color;
-        box-shadow: $button-hover-shadow;
-      }
+      font-family: variables.$title-font;
+      font-size: variables.$primary-font-size;
     }
   }
 
   footer {
-    background-color: $footer-background-color;
-    color: white;
+    background-color: variables.$footer-background-color;
+    padding: 22px 25px;
+    gap: 16px;
+    .footer-links ul {
+      list-style: none;
+      padding-inline-start: 0;
+      li {
+        margin-bottom: 7px;
+        a {
+          color: white;
+          text-decoration: none;
+        }
+      }
+    }
   }
 }
 
-.restaurant-card {
-  background-color: white;
-  border-radius: 15px;
-  box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.1);
-  display: flex;
-  flex-direction: column;
+.restaurant {
+  h1 {
+    padding-left: 20px;
+  }
+
+  .restaurant-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .restaurant-card {
+      background-color: white;
+      border-radius: 15px;
+      box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.1);
+      width: 90%;
+      height: 251px;
+      overflow: hidden; // Ensure border-radius applies to children
+      margin-bottom: 18px;
+
+      img {
+        height: 70%; // Fixed height for consistent display, adjust as needed
+        width: 100%;
+        object-fit: cover;
+        display: block;
+      }
+
+      .card-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 20px 0 10px;
+        height: 30%;
+
+        .card-text h2 {
+          margin: 0;
+          font-size: 18px;
+        }
+
+        .card-text p {
+          margin: 0;
+          font-size: 17px;
+        }
+
+        .card-button {
+          height: 25px;
+
+          .view-menu-button {
+            height: 25px;
+            border: none;
+            background-color: white;
+            padding: 0;
+          }
+          .heart-icon {
+            height: 25px;
+            stroke: black;
+            fill: none;
+          }
+        }
+      }
+    }
+  }
 }
