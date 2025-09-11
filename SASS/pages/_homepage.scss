@@ -1,0 +1,258 @@
+@use "../variables";
+
+header {
+  .location {
+    height: 3.125em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    i {
+      padding-right: 15px;
+    }
+  }
+}
+main {
+  .description {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    text-align: center;
+
+    h1 {
+      font-family: variables.$title-font;
+      font-size: variables.$primary-font-size;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: variables.$secondary-font-size;
+      margin-bottom: 20px;
+    }
+
+    button {
+      background: variables.$button-color;
+      box-shadow: variables.$button-shadow;
+      width: 218px;
+      height: 50px;
+      border-radius: 25px;
+      border: 1px solid transparent;
+      color: white;
+      font-size: 16px;
+      font-weight: 500;
+
+      &:hover {
+        background: variables.$button-hover-color;
+        box-shadow: variables.$button-hover-shadow;
+      }
+    }
+  }
+
+  .fonctionnement {
+    background-color: variables.$secondary-background-color;
+    padding: 50px 20px;
+    .fonctionnement-content {
+      max-width: 1080px;
+      margin: auto;
+    }
+    h1 {
+      margin: 0 0 25px;
+    }
+
+    .custom-ol {
+      margin: 0;
+      list-style: none;
+      counter-reset: compteur;
+      padding-left: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      li {
+        background-color: variables.$primary-background-color;
+        box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.15);
+        counter-increment: compteur;
+        position: relative;
+        margin: 10px 0;
+        width: 322.49px;
+        height: 72.38px;
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-left: 12px;
+        i {
+          position: absolute;
+          left: 40px;
+        }
+      }
+
+      li::before {
+        content: counter(compteur);
+        position: absolute;
+        left: -12px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 24px;
+        height: 24px;
+        line-height: 24px;
+        background-color: rgba(147, 86, 220, 1);
+        color: white;
+        font-weight: bold;
+        border-radius: 50%;
+        text-align: center;
+        font-family: sans-serif;
+      }
+    }
+  }
+  .restaurant {
+    h1 {
+      padding-left: 20px;
+    }
+    .restaurant-list {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      .restaurant-card {
+        position: relative;
+        background-color: white;
+        border-radius: 15px;
+        box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.1);
+        width: 95%;
+        height: 251px;
+        overflow: hidden; // Ensure border-radius applies to children
+        margin-bottom: 18px;
+        text-decoration: unset;
+        color: black;
+        .new-card {
+          position: absolute;
+          top: 15px;
+          right: 15px;
+          background-color: rgba(153, 226, 208, 1);
+          color: rgba(0, 135, 102, 1);
+          padding: 6px 12px;
+          border-radius: 2px;
+          font-size: 14px;
+          font-weight: 500;
+        }
+
+        img {
+          height: 70%; // Fixed height for consistent display, adjust as needed
+          width: 100%;
+          object-fit: cover;
+          display: block;
+        }
+
+        .card-content {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 0 20px 0 10px;
+          height: 30%;
+          text-decoration: none;
+          .card-text h2 {
+            margin: 0;
+            font-size: 18px;
+          }
+
+          .card-text p {
+            margin: 0;
+            font-size: 17px;
+          }
+
+          .card-button {
+            height: 25px;
+
+            .view-menu-button {
+              height: 25px;
+              border: none;
+              background-color: white;
+              padding: 0;
+            }
+            i {
+              font-weight: 400;
+              font-size: 24px;
+              color: black;
+              cursor: pointer;
+            }
+            &:hover i {
+              font-weight: 900;
+              background: linear-gradient(
+                200.64deg,
+                #9356dc -5.2%,
+                #ff79da 110.74%
+              );
+              background-clip: text;
+              color: transparent;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @media (min-width: 1080px) {
+    .description {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 30px;
+      h1 {
+        font-size: 2.2rem;
+      }
+      p {
+        font-size: 1.05rem;
+      }
+      button {
+        width: 260px;
+        height: 56px;
+        font-size: 18px;
+      }
+    }
+
+    .fonctionnement {
+      padding: 60px 40px;
+      .custom-ol {
+        flex-direction: row;
+        justify-content: center;
+        gap: 20px;
+        li {
+          width: 520px; /* plus large pour desktop */
+          height: 86px;
+        }
+      }
+    }
+
+    .restaurant {
+      max-width: 1080px;
+      margin: 30px auto;
+      background-color: variables.$primary-background-color;
+      h1 {
+        padding-left: 0;
+      }
+      .restaurant-list {
+        /* passer en grille deux colonnes */
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 50px;
+
+        .restaurant-card {
+          width: 45%;
+          height: 251px;
+          margin-bottom: 0;
+          .card-content {
+            height: 32%;
+            padding: 0 24px;
+            .card-text h2 {
+              font-size: 20px;
+            }
+            .card-text p {
+              font-size: 16px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

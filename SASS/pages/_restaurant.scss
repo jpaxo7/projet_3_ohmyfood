@@ -1,0 +1,301 @@
+@use "../variables";
+
+header {
+  position: relative;
+
+  .back-button {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: black;
+    text-decoration: none;
+    z-index: 10;
+
+    i {
+      font-size: 30px;
+    }
+  }
+}
+
+.restaurant-page {
+  background-color: variables.$primary-background-color;
+  padding: 0;
+
+  .restaurant-header {
+    img {
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+      display: block;
+    }
+  }
+  .main-content {
+    .restaurant-title {
+      background-color: variables.$primary-background-color; /* même que la page */
+      border-radius: 18px;
+      padding: 31px 17px 0;
+      transform: translateY(-18px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .restaurant-title h2 {
+      font-family: "Shrikhand", cursive; /* police "OhMyFood" (Shrikhand) */
+      font-size: 28px;
+      margin: 0;
+      color: black;
+      font-weight: 400;
+    }
+
+    /* Coeur (like) : même style / remplissage que celui des restaurant-card */
+    .card-button {
+      height: 25px;
+      margin-right: 24px;
+
+      .view-menu-button {
+        height: 25px;
+        border: none;
+        padding: 0;
+        background-color: variables.$primary-background-color; /* même que la page */
+      }
+      i {
+        font-weight: 400;
+        font-size: 24px;
+        color: black;
+        cursor: pointer;
+      }
+      &:hover i {
+        font-weight: 900;
+        background: linear-gradient(200.64deg, #9356dc -5.2%, #ff79da 110.74%);
+        background-clip: text;
+        color: transparent;
+      }
+    }
+    /* contenu principal (listes de plats) */
+    .menu-section {
+      width: 95%;
+      margin: 40px auto 0;
+      opacity: 0;
+      animation: fadeInDown 0.8s ease forwards;
+
+      /* Ordre d'apparition correct : entrées, plats, desserts */
+      &:nth-of-type(1) {
+        animation-delay: 0.2s;
+      }
+      &:nth-of-type(2) {
+        animation-delay: 0.4s;
+      }
+      &:nth-of-type(3) {
+        animation-delay: 0.6s;
+      }
+      h3 {
+        font-size: variables.$secondary-font-size;
+        text-transform: uppercase;
+        margin: 0 0 10px 0;
+        color: black;
+        font-weight: 500;
+        letter-spacing: 0.06em;
+
+        /* barre séparatrice sous le titre (40px x 3px, couleur tertiary) */
+        &::after {
+          content: "";
+          display: block;
+          width: 40px;
+          height: 3px;
+          background-color: variables.$tertiary-color;
+          margin-top: 8px;
+        }
+      }
+
+      /* chaque plat devient une "carte" blanche */
+      .menu-item {
+        position: relative; /* pour positionner l’encoche */
+        display: flex;
+        align-items: center;
+        margin-top: 10px;
+        padding: 14px;
+        border-radius: 12px;
+        background: variables.$secondary-background-color;
+        box-shadow: 0px 4.01px 15.04px 0px rgba(0, 0, 0, 0.1);
+        overflow: hidden; /* masque l’encoche au repos */
+        transition: padding-right 0.35s ease;
+        opacity: 0;
+        animation: fadeInDown 0.8s ease forwards;
+
+        /* Délai progressif pour chaque item */
+        @for $i from 1 through 4 {
+          &:nth-child(#{$i}) {
+            animation-delay: #{0.2 + ($i * 0.1)}s;
+          }
+        }
+        /* HOVER : on déroule l’encoche de CETTE carte uniquement */
+        &:hover {
+          padding-right: 78px;
+          .item-check {
+            width: 64px;
+          }
+          .check-icon {
+            transform: rotate(0);
+          }
+        }
+      }
+
+      /* zone texte + ellipses quand l’encoche arrive */
+      .item-text {
+        flex: 1;
+        min-width: 0; /* indispensable pour ellipsis en flex */
+        h4,
+        p {
+          margin: 0;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+        h4 {
+          font-weight: 700;
+        }
+        p {
+          opacity: 0.8;
+        }
+      }
+
+      .item-price {
+        flex: 0 0 auto;
+        font-weight: 700;
+      }
+
+      /* ENCOCHE à droite (cachée par défaut) */
+      .item-check {
+        flex: 0 0 auto;
+        position: absolute; /* se cale à droite de la carte */
+        top: 0;
+        right: 0;
+        bottom: 0; /* occupe toute la hauteur */
+        width: 0;
+        background: variables.$tertiary-color;
+        border-radius: 0 15px 15px 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        transition: width 0.35s ease;
+
+        .check-icon {
+          width: 26px;
+          height: 26px;
+          border-radius: 50%;
+          background: #fff;
+          display: grid;
+          place-items: center;
+          transform: rotate(-180deg);
+          transition: transform 0.35s ease;
+          i {
+            color: variables.$tertiary-color;
+            font-size: 14px;
+            line-height: 1;
+          }
+        }
+      }
+
+      .item-text h4 {
+        margin: 0 0 6px 0;
+        font-size: 1rem;
+        color: black;
+      }
+
+      .item-text p {
+        margin: 0;
+        color: #6b6b6b;
+        font-size: 0.95rem;
+      }
+
+      /* prix en noir sur les cartes */
+      .item-price {
+        font-weight: 700;
+        color: black;
+        min-width: 30px;
+        text-align: right;
+      }
+    }
+
+    .order-button {
+      display: flex;
+      justify-content: center;
+      margin: 40px 0;
+
+      button {
+        background: variables.$button-color;
+        box-shadow: variables.$button-shadow;
+        width: 218px;
+        height: 50px;
+        border-radius: 25px;
+        border: 1px solid transparent;
+        color: white;
+        font-size: 16px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: background 0.15s ease, box-shadow 0.15s ease;
+
+        &:hover {
+          background: variables.$button-hover-color;
+          box-shadow: variables.$button-hover-shadow;
+        }
+      }
+    }
+  }
+}
+
+/* Animation d'apparition du haut vers le bas */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (min-width: 1080px) {
+  .restaurant {
+    background-color: white;
+    align-items: center;
+    .restaurant-page {
+      width: 100%;
+
+      .restaurant-header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .main-content {
+        background-color: #ffffff;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .menu-container {
+          background-color: #f6f6f6;
+          max-width: 1055px;
+          width: 100%;
+          .restaurant-title {
+            justify-content: center;
+            gap: 25px;
+            width: 100%;
+            padding: 31px 0 0;
+            border-radius: 25px;
+            transform: translateY(-25px);
+          }
+          .card-button {
+            margin-right: 0;
+          }
+          .menu-section {
+            max-width: 635px;
+          }
+        }
+      }
+    }
+  }
+}

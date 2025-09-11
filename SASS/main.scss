@@ -1,0 +1,14 @@
+// Variables globales
+@use "variables";
+
+// Styles de base communs
+@use "bases";
+
+// Composants réutilisables
+// @use "components/buttons";
+// @use "components/cards";
+@use "components/loader";
+
+// Styles des pages
+@use "pages/homepage";
+@use "pages/restaurant";

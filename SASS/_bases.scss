@@ -1,17 +1,38 @@
-@use "variables";
+@use "./variables";
 
 body {
   background-color: variables.$primary-background-color;
   color: black;
-
+  margin: 0 auto;
+  font-family: variables.$text-font;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
   header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: variables.$text-font;
+    font-size: variables.$secondary-font-size;
+    background: rgba(234, 234, 234, 1);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    width: 100%;
     .header-logo {
+      background-color: variables.$secondary-background-color;
+      width: 100%;
+      box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.15);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 4.25em;
       img {
+        height: 36px;
       }
     }
   }
 
   main {
+    flex: 1;
     h1 {
       font-family: variables.$title-font;
       font-size: variables.$primary-font-size;
@@ -21,7 +42,14 @@ body {
   footer {
     background-color: variables.$footer-background-color;
     padding: 22px 25px;
-    gap: 16px;
+    .footer-title {
+      p {
+        font-family: Shrikhand, cursive;
+        font-weight: 400;
+        color: white;
+        font-size: 18px;
+      }
+    }
     .footer-links ul {
       list-style: none;
       padding-inline-start: 0;
@@ -30,70 +58,32 @@ body {
         a {
           color: white;
           text-decoration: none;
+          i {
+            margin-right: 10px;
+          }
         }
       }
     }
   }
 }
 
-.restaurant {
-  h1 {
-    padding-left: 20px;
-  }
-
-  .restaurant-list {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
-    .restaurant-card {
-      background-color: white;
-      border-radius: 15px;
-      box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.1);
-      width: 90%;
-      height: 251px;
-      overflow: hidden; // Ensure border-radius applies to children
-      margin-bottom: 18px;
-
-      img {
-        height: 70%; // Fixed height for consistent display, adjust as needed
-        width: 100%;
-        object-fit: cover;
-        display: block;
+@media (min-width: 1080px) {
+  body {
+    footer {
+      display: flex;
+      flex-direction: row-reverse;
+      align-items: baseline;
+      gap: 70px;
+      padding: 50px 0px 0px 0px;
+      width: 100%;
+      .footer-title {
+        margin-right: 50px;
       }
-
-      .card-content {
+      .footer-links ul {
         display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0 20px 0 10px;
-        height: 30%;
-
-        .card-text h2 {
-          margin: 0;
-          font-size: 18px;
-        }
-
-        .card-text p {
-          margin: 0;
-          font-size: 17px;
-        }
-
-        .card-button {
-          height: 25px;
-
-          .view-menu-button {
-            height: 25px;
-            border: none;
-            background-color: white;
-            padding: 0;
-          }
-          .heart-icon {
-            height: 25px;
-            stroke: black;
-            fill: none;
-          }
+        gap: 20px;
+        .m-l {
+          margin-left: 25px;
         }
       }
     }

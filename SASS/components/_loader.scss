@@ -1,0 +1,92 @@
+.loader-overlay {
+  position: fixed;
+  inset: 0;
+  background: #f6f6f6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  animation: overlayFade 3s forwards;
+}
+
+.loader-wrapper {
+  position: absolute;
+  animation: shrinkFade 3s forwards;
+}
+
+.loader-circle {
+  border-radius: 50%;
+  border: 6px solid transparent;
+  border-top-color: #9356dc;
+  border-right-color: #ff79da;
+  width: 100px;
+  height: 100px;
+  animation: spin 1.5s linear infinite;
+}
+
+.circle2 {
+  width: 140px;
+  height: 140px;
+  border-top-color: #ff79da;
+  border-right-color: #99e2d0;
+  animation-delay: 0.2s;
+}
+
+.circle3 {
+  width: 180px;
+  height: 180px;
+  border-top-color: #99e2d0;
+  border-right-color: #9356dc;
+  animation-delay: 0.4s;
+}
+
+.loader-text {
+  position: absolute;
+  color: black;
+  font-family: "Shrikhand", cursive;
+  font-size: 1.5rem;
+  letter-spacing: 2px;
+  animation: textFade 3s forwards;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes shrinkFade {
+  0%,
+  80% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0);
+    opacity: 0;
+  }
+}
+
+@keyframes overlayFade {
+  0%,
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    pointer-events: none;
+  }
+}
+
+@keyframes textFade {
+  0%,
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
