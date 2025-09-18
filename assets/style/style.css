@@ -364,7 +364,7 @@ main .restaurant .restaurant-list .restaurant-card .card-content .card-button:ho
     gap: 20px;
   }
   main .fonctionnement .custom-ol li {
-    width: 520px; /* plus large pour desktop */
+    width: 520px;
     height: 86px;
   }
   main .restaurant {
@@ -376,7 +376,6 @@ main .restaurant .restaurant-list .restaurant-card .card-content .card-button:ho
     padding-left: 0;
   }
   main .restaurant .restaurant-list {
-    /* passer en grille deux colonnes */
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -425,12 +424,8 @@ header .back-button i {
   object-fit: cover;
   display: block;
 }
-.restaurant-page .main-content {
-  /* Coeur (like) : même style / remplissage que celui des restaurant-card */
-  /* contenu principal (listes de plats) */
-}
 .restaurant-page .main-content .restaurant-title {
-  background-color: #f6f6f6; /* même que la page */
+  background-color: #f6f6f6;
   border-radius: 18px;
   padding: 31px 17px 0;
   transform: translateY(-18px);
@@ -439,7 +434,7 @@ header .back-button i {
   justify-content: space-between;
 }
 .restaurant-page .main-content .restaurant-title h2 {
-  font-family: "Shrikhand", cursive; /* police "OhMyFood" (Shrikhand) */
+  font-family: "Shrikhand", cursive;
   font-size: 28px;
   margin: 0;
   color: black;
@@ -453,7 +448,7 @@ header .back-button i {
   height: 25px;
   border: none;
   padding: 0;
-  background-color: #f6f6f6; /* même que la page */
+  background-color: #f6f6f6;
 }
 .restaurant-page .main-content .card-button i {
   font-weight: 400;
@@ -472,11 +467,6 @@ header .back-button i {
   margin: 40px auto 0;
   opacity: 0;
   animation: fadeInDown 0.8s ease forwards;
-  /* Ordre d'apparition correct : entrées, plats, desserts */
-  /* chaque plat devient une "carte" blanche */
-  /* zone texte + ellipses quand l’encoche arrive */
-  /* ENCOCHE à droite (cachée par défaut) */
-  /* prix en noir sur les cartes */
 }
 .restaurant-page .main-content .menu-section:nth-of-type(1) {
   animation-delay: 0.2s;
@@ -494,7 +484,6 @@ header .back-button i {
   color: black;
   font-weight: 500;
   letter-spacing: 0.06em;
-  /* barre séparatrice sous le titre (40px x 3px, couleur tertiary) */
 }
 .restaurant-page .main-content .menu-section h3::after {
   content: "";
@@ -505,7 +494,7 @@ header .back-button i {
   margin-top: 8px;
 }
 .restaurant-page .main-content .menu-section .menu-item {
-  position: relative; /* pour positionner l’encoche */
+  position: relative;
   display: flex;
   align-items: center;
   margin-top: 10px;
@@ -517,8 +506,6 @@ header .back-button i {
   transition: padding-right 0.35s ease;
   opacity: 0;
   animation: fadeInDown 0.8s ease forwards;
-  /* Délai progressif pour chaque item */
-  /* HOVER : on déroule l’encoche de CETTE carte uniquement */
 }
 .restaurant-page .main-content .menu-section .menu-item:nth-child(1) {
   animation-delay: 0.3s;
@@ -543,7 +530,7 @@ header .back-button i {
 }
 .restaurant-page .main-content .menu-section .item-text {
   flex: 1;
-  min-width: 0; /* indispensable pour ellipsis en flex */
+  min-width: 0;
 }
 .restaurant-page .main-content .menu-section .item-text h4,
 .restaurant-page .main-content .menu-section .item-text p {
@@ -564,10 +551,10 @@ header .back-button i {
 }
 .restaurant-page .main-content .menu-section .item-check {
   flex: 0 0 auto;
-  position: absolute; /* se cale à droite de la carte */
+  position: absolute;
   top: 0;
   right: 0;
-  bottom: 0; /* occupe toute la hauteur */
+  bottom: 0;
   width: 0;
   background: #99e2d0;
   border-radius: 0 15px 15px 0;
@@ -631,7 +618,6 @@ header .back-button i {
   box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.35);
 }
 
-/* Animation d'apparition du haut vers le bas */
 @keyframes fadeInDown {
   from {
     opacity: 0;

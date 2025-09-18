@@ -121,7 +121,7 @@ main {
         box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.1);
         width: 95%;
         height: 251px;
-        overflow: hidden; // Ensure border-radius applies to children
+        overflow: hidden;
         margin-bottom: 18px;
         text-decoration: unset;
         color: black;
@@ -138,7 +138,7 @@ main {
         }
 
         img {
-          height: 70%; // Fixed height for consistent display, adjust as needed
+          height: 70%;
           width: 100%;
           object-fit: cover;
           display: block;
@@ -217,7 +217,7 @@ main {
         justify-content: center;
         gap: 20px;
         li {
-          width: 520px; /* plus large pour desktop */
+          width: 520px;
           height: 86px;
         }
       }
@@ -231,7 +231,6 @@ main {
         padding-left: 0;
       }
       .restaurant-list {
-        /* passer en grille deux colonnes */
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: space-between;

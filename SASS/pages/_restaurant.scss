@@ -32,7 +32,7 @@ header {
   }
   .main-content {
     .restaurant-title {
-      background-color: variables.$primary-background-color; /* même que la page */
+      background-color: variables.$primary-background-color;
       border-radius: 18px;
       padding: 31px 17px 0;
       transform: translateY(-18px);
@@ -42,14 +42,13 @@ header {
     }
 
     .restaurant-title h2 {
-      font-family: "Shrikhand", cursive; /* police "OhMyFood" (Shrikhand) */
+      font-family: "Shrikhand", cursive;
       font-size: 28px;
       margin: 0;
       color: black;
       font-weight: 400;
     }
 
-    /* Coeur (like) : même style / remplissage que celui des restaurant-card */
     .card-button {
       height: 25px;
       margin-right: 24px;
@@ -58,7 +57,7 @@ header {
         height: 25px;
         border: none;
         padding: 0;
-        background-color: variables.$primary-background-color; /* même que la page */
+        background-color: variables.$primary-background-color;
       }
       i {
         font-weight: 400;
@@ -73,14 +72,13 @@ header {
         color: transparent;
       }
     }
-    /* contenu principal (listes de plats) */
+
     .menu-section {
       width: 95%;
       margin: 40px auto 0;
       opacity: 0;
       animation: fadeInDown 0.8s ease forwards;
 
-      /* Ordre d'apparition correct : entrées, plats, desserts */
       &:nth-of-type(1) {
         animation-delay: 0.2s;
       }
@@ -98,7 +96,6 @@ header {
         font-weight: 500;
         letter-spacing: 0.06em;
 
-        /* barre séparatrice sous le titre (40px x 3px, couleur tertiary) */
         &::after {
           content: "";
           display: block;
@@ -109,9 +106,8 @@ header {
         }
       }
 
-      /* chaque plat devient une "carte" blanche */
       .menu-item {
-        position: relative; /* pour positionner l’encoche */
+        position: relative;
         display: flex;
         align-items: center;
         margin-top: 10px;
@@ -124,13 +120,12 @@ header {
         opacity: 0;
         animation: fadeInDown 0.8s ease forwards;
 
-        /* Délai progressif pour chaque item */
         @for $i from 1 through 4 {
           &:nth-child(#{$i}) {
             animation-delay: #{0.2 + ($i * 0.1)}s;
           }
         }
-        /* HOVER : on déroule l’encoche de CETTE carte uniquement */
+
         &:hover {
           padding-right: 78px;
           .item-check {
@@ -142,10 +137,9 @@ header {
         }
       }
 
-      /* zone texte + ellipses quand l’encoche arrive */
       .item-text {
         flex: 1;
-        min-width: 0; /* indispensable pour ellipsis en flex */
+        min-width: 0;
         h4,
         p {
           margin: 0;
@@ -166,13 +160,12 @@ header {
         font-weight: 700;
       }
 
-      /* ENCOCHE à droite (cachée par défaut) */
       .item-check {
         flex: 0 0 auto;
-        position: absolute; /* se cale à droite de la carte */
+        position: absolute;
         top: 0;
         right: 0;
-        bottom: 0; /* occupe toute la hauteur */
+        bottom: 0;
         width: 0;
         background: variables.$tertiary-color;
         border-radius: 0 15px 15px 0;
@@ -211,7 +204,6 @@ header {
         font-size: 0.95rem;
       }
 
-      /* prix en noir sur les cartes */
       .item-price {
         font-weight: 700;
         color: black;
@@ -247,7 +239,6 @@ header {
   }
 }
 
-/* Animation d'apparition du haut vers le bas */
 @keyframes fadeInDown {
   from {
     opacity: 0;
